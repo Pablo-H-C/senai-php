@@ -16,6 +16,30 @@
 </head>
 <body>
 
+<?php
+$erro=false;
+$mensagem=null;
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+
+  print_r($_POST);
+  if (empty($_POST['nome']) OR 
+     (empty($_POST['usuario']) OR 
+     (empty($_POST['senha']) OR 
+     (empty($_POST['usuario']) OR 
+     (empty($_POST['confirmarSenha'])))))) {
+    $erro=true;
+    $mensagem='Preencha os campos obrigatorios';
+  }elseif ($_POST['senha'] != $_POST['confirmarSenha']){
+    $erro=true;
+    $mensagem='O Campo comfirmar senha é diferente';
+    }else{
+      
+    }
+
+}
+
+?>
+
   <section class="pagina-login">
     <div class="login">
 
@@ -28,12 +52,24 @@
 
           <div class="row">
             <div class="col-sm-12">
-              <div class="alert alert-success">
+
+
+            <?php
+            
+            if ($erro==true) {
+              ?>
+              <!-- <div class="alert alert-success">
                 Cadastrado com sucesso!
-              </div>
+              </div> -->
               <div class="alert alert-danger">
-                Erro do cadastro!
+                <?php echo $mensagem ?>
               </div>
+              <?php
+            }
+            ?>
+
+            
+            
             </div>
           </div>
 

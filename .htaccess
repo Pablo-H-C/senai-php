@@ -1,5 +1,5 @@
 RewriteEngine on
 
 #REGRAS DE LOGIN
-RewriteRule ^login/?$ ./index.html?action=login [QSA,NC]
-RewriteRule ^cadastro/?$ ./cadastro.html?action=cadastro [QSA,NC]
+RewriteRule ^login/?$ ./index.php?action=login [QSA,NC]
+RewriteRule ^cadastro/?$ ./cadastro.php?action=cadastro [QSA,NC]
